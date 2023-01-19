@@ -4,18 +4,18 @@ import { Link } from "react-router-dom";
 
 const Title = () => (
   <a href="/">
-    <img className="logo" alt="logo" src={Logo} />
+    <img className="w-[100px] bg-transparent " alt="logo" src={Logo} />
   </a>
 );
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
-    <div className="header">
+    <div className="flex justify-between items-center mb-[10px] p-[10px] bg-slate-100  shadow-xl">
       <Title />
 
       <div className="nav-items">
-        <ul className="text-2xl font-serif text-blue-600">
+        <ul className="text-2xl font-medium">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -30,14 +30,14 @@ const Header = () => {
       </div>
       {isLoggedIn ? (
         <button
-          className="bg-orange-200 text-black text-xl rounded-md p-2 h-[40%]"
+          className="bg-white text-black text-xl font-semibold rounded-md p-2 h-[40%]"
           onClick={() => setIsLoggedIn(false)}
         >
           LogOut
         </button>
       ) : (
         <button
-          className="bg-orange-200 text-black rounded-md p-2 h-[40%] text-xl"
+          className="bg-white text-black rounded-md font-semibold p-2 h-[40%] text-xl "
           onClick={() => setIsLoggedIn(true)}
         >
           LogIn

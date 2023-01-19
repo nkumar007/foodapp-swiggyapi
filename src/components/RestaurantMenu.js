@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { IMG_CDN_URL } from "../Contants";
 import Shimmer from "./Shimmer";
+import star from "../assets/img/star.svg";
 
 const RestaurantMenu = () => {
   const [restaurant, setRestaurant] = useState(null);
@@ -24,31 +25,41 @@ const RestaurantMenu = () => {
   return !restaurant ? (
     <Shimmer />
   ) : (
-    <div className="flex flex-col m-5">
-      <div className=" text-xl font-medium text-black w-[350px] h-[400px] container bg-orange-300 rounded-md p-2">
-        <h2 className="text-3xl text-blue-900">{restaurant.name}</h2>
-        <img
-          src={IMG_CDN_URL + restaurant.cloudinaryImageId}
-          alt=""
-          className="w-[100%] bg-cover"
-        />
-        <h3>{restaurant.area}</h3>
-        <h3>{restaurant.city}</h3>
-        <h3>{restaurant.avgRating} stars</h3>
-        <h3>{restaurant.costForTwoMsg}</h3>
+    <div className="flex gap-4 m-5 h-[60vh]">
+      <div className="flex gap-4  items-center  text-xl font-medium text-white w-[80%] bg-[#171a29] hover hover:shadow-xl border   p-2">
+        <div className="flex flex-col gap-3">
+          <img
+            src={IMG_CDN_URL + restaurant.cloudinaryImageId}
+            alt=""
+            className="object-cover"
+          />
+        </div>
+        <div className="flex flex-col  gap-3 ">
+          <h2 className="text-4xl text-white">{restaurant.name}</h2>
+          <h3 className="bg-slate-200 p-2 rounded-md text-black">
+            {restaurant.area}, {restaurant.city}
+          </h3>
+          <h3 className="bg-slate-200 p-2 rounded-md text-black flex justify-start items-center">
+            <img src={star} alt="" className="w-[30px] h-[30px]" />
+            {restaurant.avgRating} stars
+          </h3>
+          <h3 className="bg-slate-200 p-2 rounded-md text-black">
+            {restaurant.costForTwoMsg}
+          </h3>
+        </div>
       </div>
-      <div>
-        <h1 className=" text-blue-600 text-3xl font-bold ">Menu</h1>
-        <ul className="mt-2 flex flex-col  justify-center items-start gap-3">
+      <div className="flex flex-col items-start justify-center ">
+        <h1 className=" text-3xl font-bold">Menu</h1>
+        <div className="mt-2 flex flex-col gap-3 overflow-auto">
           {Object.values(restaurant?.menu?.items).map((item) => (
-            <li
+            <span
               key={item.id}
-              className="text-black text-xl font-serif font-medium bg-sky-300 p-2 rounded-lg"
+              className="text-black text-lg  font-medium  hover hover:text-[#fc8019] cursor-pointer"
             >
               {item.name}
-            </li>
+            </span>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );
