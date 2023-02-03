@@ -3,7 +3,7 @@ import RestaurantCard from "./RestaurantCard";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import {} from "./utils/helper";
+import { filterData } from "./utils/helper";
 import useFetch from "./utils/useFetch";
 import useOnline from "./utils/useOnline";
 
