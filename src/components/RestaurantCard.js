@@ -1,4 +1,6 @@
 import { IMG_CDN_URL } from "../Contants";
+import { useContext } from "react";
+import userContext from "./utils/userContext";
 
 const RestrauntCard = ({
   name,
@@ -7,6 +9,8 @@ const RestrauntCard = ({
   costForTwoString,
   deliveryTime,
 }) => {
+  const { user } = useContext(userContext);
+
   return (
     <div
       className="hover hover:shadow-xl  rounded-md
@@ -18,6 +22,7 @@ const RestrauntCard = ({
       <h3 className="text-md text-black font-normal">{cuisines?.join(", ")}</h3>
       <h3 className="text-md text-black font-normal">{deliveryTime} minutes</h3>
       <h4 className="text-md text-black font-normal">{costForTwoString}</h4>
+      <h4 className="text-md text-black font-normal">{user.name}</h4>
     </div>
   );
 };
