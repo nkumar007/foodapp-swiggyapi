@@ -2,12 +2,18 @@ import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../Contants";
 import Shimmer from "./Shimmer";
 import star from "../assets/img/star.svg";
-import useRestaurant from "./utils/useRestaurant";
+import useRestaurant from "../utils/useRestaurant";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const RestaurantMenu = () => {
   const { id } = useParams();
-
   const restaurant = useRestaurant(id);
+  const dispatch = useDispatch();
+
+  const addFoodItem = (item) => {
+    dispatch(addItem(item));
+  };
 
   return !restaurant ? (
     <Shimmer />
@@ -41,9 +47,24 @@ const RestaurantMenu = () => {
           {Object.values(restaurant?.menu?.items).map((item) => (
             <span
               key={item.id}
-              className="text-black text-lg  font-medium  hover hover:text-[#fc8019] cursor-pointer"
+              className="text-black 
+                text-lg
+                bg-green-300
+                p-1
+                m-1
+                font-medium"
             >
-              {item.name}
+              <div className=" px-6 flex justify-between items-center">
+                <span>{item.name}</span>
+                <button
+                  className="m-2 
+                text-blue-700 
+                font-bold "
+                  onClick={() => addFoodItem(item)}
+                >
+                  ADD
+                </button>
+              </div>
             </span>
           ))}
         </div>

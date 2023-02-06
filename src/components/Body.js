@@ -3,10 +3,10 @@ import RestaurantCard from "./RestaurantCard";
 
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { filterData } from "./utils/helper";
-import useFetch from "./utils/useFetch";
-import useOnline from "./utils/useOnline";
-import userContext from "./utils/userContext";
+import { filterData } from "../utils/helper";
+import useFetch from "../utils/useFetch";
+import useOnline from "../utils/useOnline";
+import userContext from "../utils/userContext";
 
 const Body = () => {
   const { user, setUser } = useContext(userContext);
@@ -37,12 +37,12 @@ const Body = () => {
             setSearchText(e.target.value);
           }}
         />
-        <input
+        {/* <input
           type="text"
           className="rounded-sm p-2 outline outline-1 text-left"
           value={user.email}
           onChange={(e) => setUser({ ...user, email: e.target.value })}
-        />
+        /> */}
         <button
           className="bg-white text-lg font-semibold text-black rounded-md px-3 py-1 h-[40%]"
           onClick={() => {

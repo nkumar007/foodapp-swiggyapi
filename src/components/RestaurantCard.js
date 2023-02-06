@@ -1,6 +1,6 @@
 import { IMG_CDN_URL } from "../Contants";
 import { useContext } from "react";
-import userContext from "./utils/userContext";
+import userContext from "../utils/userContext";
 
 const RestrauntCard = ({
   name,

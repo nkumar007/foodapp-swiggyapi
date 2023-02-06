@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FETCH_RESTAURANT_LIST_URL } from "../../Contants";
+import { FETCH_RESTAURANT_LIST_URL } from "../Contants";
 
 const useFetch = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
