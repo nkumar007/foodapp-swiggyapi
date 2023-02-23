@@ -9,7 +9,8 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(e);
-    navigate();
+
+    navigate("/", { replace: true });
   };
   return (
     <form
@@ -32,7 +33,6 @@ const Login = () => {
           <input
             type="email"
             name="email"
-            required
             placeholder="email"
             className="p-2 m-2 outline outline-none text-xl rounded-md"
           />

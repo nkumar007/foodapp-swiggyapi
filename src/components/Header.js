@@ -38,6 +38,9 @@ const Header = () => {
               {cartItems.length}
             </sup>{" "}
           </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
         </ul>
       </div>
       {/* <h1 className="text-3xl text-black font-medium">{user.email}</h1> */}

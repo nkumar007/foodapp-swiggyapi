@@ -15,6 +15,8 @@ import Shimmer from "./components/Shimmer";
 import Cart from "./components/cart";
 import userContext from "./utils/userContext";
 
+//pages
+import Login from "./pages/Login";
 //utils
 import store from "./utils/store";
 
@@ -58,6 +60,7 @@ const appRouter = createBrowserRouter([
         path: "/restaurants/:id",
         element: <RestaurantMenu />,
       },
+
       {
         path: "/instamart",
         element: (
@@ -71,6 +74,10 @@ const appRouter = createBrowserRouter([
         element: <Cart />,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 
